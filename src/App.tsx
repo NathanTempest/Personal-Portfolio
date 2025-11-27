@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaReact, FaJava, FaPython, FaAws, FaDatabase, FaBrain } from "react-icons/fa";
+import { FaReact, FaJava, FaPython, FaAws, FaDatabase, FaBrain , FaGithub, FaPhone, FaEnvelope, FaLinkedin} from "react-icons/fa";
 
 const App: React.FC = () => {
   const [expandedArtifact, setExpandedArtifact] = useState<number | null>(null);
@@ -23,6 +23,7 @@ const App: React.FC = () => {
           <button onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })} className="text-pink-500 hover:text-pink-400 transition">Projects</button>
           <button onClick={() => document.getElementById("skills")?.scrollIntoView({ behavior: "smooth" })} className="text-pink-500 hover:text-pink-400 transition">Skills</button>
           <button onClick={() => document.getElementById("artifacts")?.scrollIntoView({ behavior: "smooth" })} className="text-pink-500 hover:text-pink-400 transition">Artifacts</button>
+          <button onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })} className="text-pink-500 hover:text-pink-400 transition">Contact</button>
           <button onClick={() => document.getElementById("resume")?.scrollIntoView({ behavior: "smooth" })} className="text-pink-500 hover:text-pink-400 transition">Resume</button>
         </div>
       </nav>
@@ -186,6 +187,7 @@ const App: React.FC = () => {
 {/* Artifacts */}
 <section id="artifacts" className="p-12">
   <h2 className="text-4xl font-bold mb-8 text-pink-500">Artifacts</h2>
+  <p className="text-gray-400 italic text-sm mb-6">Click on artifacts for more information</p>
   <div className="space-y-6">
     {/* Soccer Pundit Chatbot */}
     <div
@@ -258,6 +260,44 @@ const App: React.FC = () => {
     </div>
   </div>
 </section>
+
+    {/* Contact */}
+    <section id="contact" className="p-12 hover:scale-105 transition-transform duration-300">
+        <h2 className="text-4xl font-bold mb-8 text-pink-500">Contact</h2>
+        <div className="flex flex-col md:flex-row md:justify-start gap-6 text-gray-300 text-lg">
+          {/* LinkedIn */}
+          <div className="flex items-center gap-2 hover:text-pink-400 transition">
+            <FaLinkedin className="text-pink-500 text-2xl" />
+            <a href="https://www.linkedin.com/in/nishanthjason/" target="_blank" className="hover:underline">
+              linkedin.com/in/nishanthjason
+            </a>
+          </div>
+
+          {/* GitHub */}
+          <div className="flex items-center gap-2 hover:text-pink-400 transition">
+            <FaGithub className="text-pink-500 text-2xl" />
+            <a href="https://github.com/NathanTempest" target="_blank" className="hover:underline">
+              github.com/NathanTempest
+            </a>
+          </div>
+
+          {/* Email */}
+          <div className="flex items-center gap-2 hover:text-pink-400 transition">
+            <FaEnvelope className="text-pink-500 text-2xl" />
+            <a href="mailto:nishanthjason@gmail.com" className="hover:underline">
+              nishanthjason@gmail.com
+            </a>
+          </div>
+
+          {/* Phone */}
+          <div className="flex items-center gap-2 hover:text-pink-400 transition">
+            <FaPhone className="text-pink-500 text-2xl" />
+            <a href="tel:7164639623" className="hover:underline">
+              716-463-9623
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* Resume Download */}
       <section id="resume" className="p-12 hover:scale-105 transition-transform duration-300">
