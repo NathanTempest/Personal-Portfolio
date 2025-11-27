@@ -302,7 +302,7 @@ const App: React.FC = () => {
       {/* Resume Download */}
       <section id="resume" className="p-12 hover:scale-105 transition-transform duration-300">
         <h2 className="text-4xl font-bold mb-6 text-pink-500">Resume</h2>
-        <a href="/NathanielJason_Resume.pdf" download className="bg-pink-500 hover:bg-pink-400 text-black px-6 py-3 rounded-xl transition">
+        <a href="./NathanielJason_Resume.pdf" download className="bg-pink-500 hover:bg-pink-400 text-black px-6 py-3 rounded-xl transition">
           Download Resume
         </a>
       </section>
