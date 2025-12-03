@@ -14,7 +14,7 @@ const Contact: React.FC = () => {
         <li>Phone: 716-463-9623</li>
         <li>
           LinkedIn:{" "}
-          <a href="https://linkedin.com/in/nathanjason" className="underline text-gold">
+          <a href="https://linkedin.com/in/nishanthjason" className="underline text-gold">
             linkedin.com/in/nathanjason
           </a>
         </li>
