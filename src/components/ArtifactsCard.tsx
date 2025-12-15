@@ -63,6 +63,18 @@ const artifactsData: ArtifactProps[] = [
     valueProposition: "Helps users stay organized and motivated.",
     uniqueValue: "Gamified experience to improve adherence to personal goals.",
     relevance: "Useful for productivity and personal management apps."
+  },
+  {
+    id: 5,
+    title: "Adaptive Personal Recommendation System (In Progress)",
+    introduction: "A concept-driven AI system designed to learn and adapt to a user’s evolving tastes in music, movies, books, and art.",
+    description: "This project explores how personalized recommendations can be generated using explicit user feedback such as ratings, reviews, and curated lists from platforms like Apple Music, Goodreads, and Letterboxd.",
+    objective: "Design an adaptive recommendation framework that evolves with user preferences while respecting privacy and ethical AI principles.",
+    process: "Outlined a hybrid learning approach using preference embeddings, temporal weighting, and feedback-driven adaptation inspired by reinforcement learning concepts.",
+    techStack: "Python (planned), Pandas, Scikit-learn, Reinforcement Learning concepts, API-based data ingestion",
+    valueProposition: "Provides deeply personalized recommendations without relying on invasive data collection or engagement-driven algorithms.",
+    uniqueValue: "Balances human creativity with AI efficiency while prioritizing transparency, explainability, and user consent.",
+    relevance: "Highly relevant to modern recommender systems, ethical AI design, and real-world personalization challenges."
   }
 ];
 
