@@ -1,93 +1,77 @@
-import React from "react";
+import { Briefcase } from "lucide-react";
+
+const experiences = [
+  {
+    company: "Meta",
+    role: "Software Engineer",
+    period: "Nov 2025 – Present",
+    impact: "Contributing to core developer tooling and open-source Python typechecking infrastructure.",
+    tech: ["Rust", "Python", "AWS", "VSCode Development", "Typechecking", "ASTs", "BUCK"],
+    points: [
+      "Contributing to 'Pyrfely', an open-source Python typechecker and Language Server built in Rust.",
+      "Implementing type checking and resolution logic using Abstract Syntax Trees (ASTs) for high-performance analysis.",
+      "Developing and maintaining the Language Server Protocol (LSP) implementation for VSCode integration.",
+      "Managing version upgrades for both the core software and the VSCode extension.",
+      "Utilizing BUCK for efficient build orchestration across distributed systems."
+    ]
+  },
+  {
+    company: "Blue Space Technologies (Client: Boeing)",
+    role: "Software Engineer",
+    period: "Dec 2023 – Jul 2025",
+    impact: "Modernized critical aviation maintenance systems with 35% ETL improvement.",
+    tech: ["Spring Boot", "PostgreSQL", "Airflow", "Spark"],
+    points: [
+      "Refactored legacy aircraft systems into Spring Boot microservices.",
+      "Built Spark + Airflow pipelines for telemetry analysis.",
+      "Optimized PostgreSQL with indexing and partitioning (40% reduced latency)."
+    ]
+  },
+  {
+    company: "Amazon Web Services (AWS)",
+    role: "Software Development Engineer",
+    period: "Oct 2022 – Dec 2023",
+    impact: "Accelerated large-scale ad analytics and reduced operational latency.",
+    tech: ["Java", "Node.js", "Lambda", "Step Functions", "GraphQL"],
+    points: [
+      "Migrated monolith advertising systems to GraphQL & Airflow DAGs.",
+      "Built serverless workflows handling millions of daily requests.",
+      "Improved incident response times using distributed tracing."
+    ]
+  }
+];
 
 export default function Experience() {
   return (
-    <section id="experience" className="p-12">
-      <h2 className="text-4xl font-bold text-pink-500 mb-8">Experience</h2>
-
-      <div className="space-y-10">
-
-        {/* HCL (Current Role) */}
-        <div className="bg-gray-900 p-6 rounded-xl hover:scale-[1.02] transition-transform duration-300">
-          <h3 className="text-2xl font-bold text-pink-500">HCL America Inc. — Technical Lead(Client: Meta)</h3>
-          <p className="text-gray-400 text-sm mb-4">Nov 2025 – Present</p>
-          <ul className="list-disc ml-6 space-y-2 text-gray-300">
-            <li>Leading core engineering and modernization efforts across cloud-native and distributed systems.</li>
-            <li>Driving scalable backend solutions, automation, and secure system integration for enterprise teams.</li>
-            <li>Supporting development best practices, CI/CD pipelines, and cross-functional collaboration.</li>
-            <li>Providing architectural guidance for API development, platform reliability, and data-driven applications.</li>
-          </ul>
-
-          <p className="text-pink-400 font-semibold mt-4">
-            Impact: Strengthened platform reliability, standardized development workflows, and accelerated delivery efficiency across multiple engineering teams.
-          </p>
-
-          <p className="text-gray-400 mt-2">
-            <strong>Tech Stack:</strong> Java, Spring Boot, Python, React, AWS, Kubernetes, CI/CD, SQL/NoSQL
-          </p>
-        </div>
-
-        {/* Boeing via Blue Space */}
-        <div className="bg-gray-900 p-6 rounded-xl hover:scale-[1.02] transition-transform duration-300">
-          <h3 className="text-2xl font-bold text-pink-500">Software Engineer — Blue Space Technologies (Client: Boeing)</h3>
-          <p className="text-gray-400 text-sm mb-4">Dec 2023 – Jul 2025</p>
-          <ul className="list-disc ml-6 space-y-2 text-gray-300">
-            <li>Refactored legacy aircraft maintenance systems into Spring Boot microservices.</li>
-            <li>Built Spark + Airflow pipelines for telemetry analysis (35% ETL improvement).</li>
-            <li>Optimized PostgreSQL with indexing and partitioning (40% reduced latency).</li>
-            <li>Implemented zero-downtime deployments using Kubernetes & GitHub Actions.</li>
-          </ul>
-
-          <p className="text-pink-400 font-semibold mt-4">
-            Impact: Modernized a critical aviation system and significantly improved data processing reliability.
-          </p>
-
-          <p className="text-gray-400 mt-2">
-            <strong>Tech Stack:</strong> Java, Spring Boot, React, PostgreSQL, Airflow, Spark, K8s, GitHub Actions
-          </p>
-        </div>
-
-        {/* AWS */}
-        <div className="bg-gray-900 p-6 rounded-xl hover:scale-[1.02] transition-transform duration-300">
-          <h3 className="text-2xl font-bold text-pink-500">Software Development Engineer — Amazon Web Services</h3>
-          <p className="text-gray-400 text-sm mb-4">Oct 2022 – Dec 2023</p>
-          <ul className="list-disc ml-6 space-y-2 text-gray-300">
-            <li>Migrated monolith advertising insights systems to GraphQL & Airflow DAGs.</li>
-            <li>Built Node.js & Java microservices handling millions of requests daily (&lt;100ms latency).</li>
-            <li>Developed serverless data workflows with Lambda + Step Functions.</li>
-            <li>Improved incident response times using CloudWatch & distributed tracing.</li>
-          </ul>
-
-          <p className="text-pink-400 font-semibold mt-4">
-            Impact: Accelerated large-scale ad analytics and reduced operational latency across platforms.
-          </p>
-
-          <p className="text-gray-400 mt-2">
-            <strong>Tech Stack:</strong> Java, Node.js, AWS Lambda, Step Functions, DynamoDB, RDS, GraphQL
-          </p>
-        </div>
-
-        {/* Capgemini via Auridene */}
-        <div className="bg-gray-900 p-6 rounded-xl hover:scale-[1.02] transition-transform duration-300">
-          <h3 className="text-2xl font-bold text-pink-500">Senior Software Engineer — Auridene Technologies (Client: Capgemini)</h3>
-          <p className="text-gray-400 text-sm mb-4">Mar 2019 – Jun 2021</p>
-          <ul className="list-disc ml-6 space-y-2 text-gray-300">
-            <li>Developed SaaS solutions using Spring Boot, Angular/React, PostgreSQL.</li>
-            <li>Improved API throughput 30% via Redis caching & query tuning.</li>
-            <li>Built Kafka + MongoDB real-time pipelines.</li>
-            <li>Delivered microservices in Agile teams with CI/CD automation.</li>
-          </ul>
-
-          <p className="text-pink-400 font-semibold mt-4">
-            Impact: Delivered production-ready SaaS applications that improved platform scalability.
-          </p>
-
-          <p className="text-gray-400 mt-2">
-            <strong>Tech Stack:</strong> Spring Boot, Angular, React, Redis, Kafka, MongoDB, PostgreSQL
-          </p>
-        </div>
-
+    <div className="h-full flex flex-col">
+      <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+        <Briefcase className="text-emerald-500" size={20} />
+        Professional Experience
+      </h3>
+      <div className="space-y-8 overflow-y-auto custom-scrollbar pr-4">
+        {experiences.map((exp, idx) => (
+          <div key={idx} className="relative pl-6 border-l-2 border-slate-100 last:border-0 pb-2">
+            <div className="absolute -left-[9px] top-0 w-4 h-4 bg-white border-2 border-emerald-500 rounded-full"></div>
+            <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-2">
+              <h4 className="font-bold text-slate-900">{exp.company}</h4>
+              <span className="text-xs font-medium text-slate-400">{exp.period}</span>
+            </div>
+            <p className="text-sm font-semibold text-emerald-600 mb-2">{exp.role}</p>
+            <ul className="text-xs text-slate-600 space-y-1.5 mb-3 list-disc ml-4">
+              {exp.points.map((p, i) => (
+                <li key={i}>{p}</li>
+              ))}
+            </ul>
+            <div className="flex flex-wrap gap-1.5">
+              {exp.tech.map(t => (
+                <span key={t} className="px-1.5 py-0.5 bg-slate-200/50 text-[10px] font-medium text-slate-600 rounded">
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 }

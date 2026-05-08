@@ -1,52 +1,60 @@
-import React from "react";
+import { FaReact, FaJava, FaPython, FaAws, FaNodeJs, FaRust } from "react-icons/fa";
+import { SiTypescript, SiSpringboot, SiKubernetes, SiOpenai, SiLangchain } from "react-icons/si";
+
+const skillCategories = [
+  {
+    name: "Backend",
+    skills: [
+      { name: "Java", icon: <FaJava className="text-red-600" /> },
+      { name: "Spring Boot", icon: <SiSpringboot className="text-green-600" /> },
+      { name: "Python", icon: <FaPython className="text-blue-500" /> },
+      { name: "Rust", icon: <FaRust className="text-orange-700" /> },
+      { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
+    ]
+  },
+  {
+    name: "Frontend",
+    skills: [
+      { name: "React", icon: <FaReact className="text-cyan-400" /> },
+      { name: "TypeScript", icon: <SiTypescript className="text-blue-600" /> },
+    ]
+  },
+  {
+    name: "Cloud & AI",
+    skills: [
+      { name: "AWS", icon: <FaAws className="text-orange-500" /> },
+      { name: "K8s", icon: <SiKubernetes className="text-blue-500" /> },
+      { name: "OpenAI", icon: <SiOpenai className="text-slate-800" /> },
+      { name: "LangChain", icon: <SiLangchain className="text-slate-700" /> },
+    ]
+  }
+];
 
 export default function Skills() {
   return (
-    <section id="skills" className="p-12">
-      <h2 className="text-4xl font-bold text-pink-500 mb-8">Skills</h2>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-        <div className="bg-gray-900 p-6 rounded-xl">
-          <h3 className="text-xl font-bold text-pink-500 mb-4">Backend</h3>
-          <ul className="space-y-2 text-gray-300">
-            <li>Java (Spring Boot) — <span className="text-green-400">Expert</span></li>
-            <li>Python — <span className="text-green-400">Expert</span></li>
-            <li>Node.js — <span className="text-yellow-300">Intermediate</span></li>
-            <li>Microservices — <span className="text-green-400">Expert</span></li>
-          </ul>
-        </div>
-
-        <div className="bg-gray-900 p-6 rounded-xl">
-          <h3 className="text-xl font-bold text-pink-500 mb-4">Frontend</h3>
-          <ul className="space-y-2 text-gray-300">
-            <li>React.js — <span className="text-green-400">Expert</span></li>
-            <li>TypeScript — <span className="text-yellow-300">Intermediate</span></li>
-            <li>HTML/CSS — <span className="text-green-400">Expert</span></li>
-          </ul>
-        </div>
-
-        <div className="bg-gray-900 p-6 rounded-xl">
-          <h3 className="text-xl font-bold text-pink-500 mb-4">Cloud & DevOps</h3>
-          <ul className="space-y-2 text-gray-300">
-            <li>AWS — <span className="text-green-400">Expert</span></li>
-            <li>Kubernetes — <span className="text-yellow-300">Intermediate</span></li>
-            <li>CI/CD — <span className="text-green-400">Expert</span></li>
-            <li>GitHub Actions — <span className="text-green-400">Expert</span></li>
-          </ul>
-        </div>
-
-        <div className="bg-gray-900 p-6 rounded-xl">
-          <h3 className="text-xl font-bold text-pink-500 mb-4">AI/ML Tools</h3>
-          <ul className="space-y-2 text-gray-300">
-            <li>OpenAI — <span className="text-green-400">Expert</span></li>
-            <li>Claude — <span className="text-green-400">Expert</span></li>
-            <li>LangChain — <span className="text-orange-400">Beginner</span></li>
-            <li>Hugging Face — <span className="text-orange-400">Beginner</span></li>
-          </ul>
-        </div>
-
+    <div className="h-full flex flex-col">
+      <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+        <span className="w-1.5 h-6 bg-emerald-500 rounded-full"></span>
+        Tech Stack
+      </h3>
+      <div className="space-y-4 overflow-y-auto pr-2 custom-scrollbar">
+        {skillCategories.map((cat) => (
+          <div key={cat.name}>
+            <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">{cat.name}</p>
+            <div className="flex flex-wrap gap-2">
+              {cat.skills.map((skill) => (
+                <div 
+                  key={skill.name}
+                  className="flex items-center gap-1.5 px-2 py-1 bg-slate-50 border border-slate-100 rounded-lg text-xs font-medium text-slate-700 hover:border-emerald-200 hover:bg-emerald-50 transition-colors cursor-default"
+                >
+                  {skill.icon}
+                  {skill.name}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 }

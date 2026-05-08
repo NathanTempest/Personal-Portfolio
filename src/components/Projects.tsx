@@ -1,59 +1,51 @@
-import React from "react";
+import { Layers, Zap, Database, Globe } from "lucide-react";
+
+const projects = [
+  {
+    title: "Boeing Modernization",
+    desc: "Refactored monolithic aviation systems into Spring Boot microservices.",
+    impact: "Reduced latency & improved ETL by 35%.",
+    icon: <Layers className="text-blue-500" size={20} />
+  },
+  {
+    title: "Telemetry Pipelines",
+    desc: "Spark + Airflow ETL pipelines for flight data analytics.",
+    impact: "35% faster processing runtimes.",
+    icon: <Zap className="text-yellow-500" size={20} />
+  },
+  {
+    title: "Ad Insights GraphQL",
+    desc: "Migrated REST services to GraphQL for personalized ad reporting.",
+    impact: "Eliminated over-fetching and improved UX.",
+    icon: <Globe className="text-emerald-500" size={20} />
+  },
+  {
+    title: "High-Perf SaaS",
+    desc: "Scalable SaaS modules using Spring Boot, React, and Redis.",
+    impact: "30% increase in API throughput.",
+    icon: <Database className="text-purple-500" size={20} />
+  }
+];
 
 export default function Projects() {
   return (
-    <section id="projects" className="p-12">
-      <h2 className="text-4xl font-bold text-pink-500 mb-8">Projects</h2>
-
-      <div className="space-y-8">
-
-        {/* Boeing Projects */}
-        <div className="bg-gray-900 p-6 rounded-xl hover:scale-[1.02] transition duration-300">
-          <h3 className="text-2xl font-bold text-pink-500">Boeing — Maintenance System Modernization</h3>
-          <p className="mt-3 text-gray-300">
-            Refactored a monolithic aircraft maintenance system into modular Spring Boot microservices, 
-            enabling distributed processing and easier deployments.
-          </p>
-          <p className="mt-2 text-gray-400">
-            <strong>Impact:</strong> Reduced latency, improved ETL performance, and modernized aviation data workflows.
-          </p>
-        </div>
-
-        <div className="bg-gray-900 p-6 rounded-xl hover:scale-[1.02] transition duration-300">
-          <h3 className="text-2xl font-bold text-pink-500">Telemetry Analysis Pipelines</h3>
-          <p className="mt-3 text-gray-300">
-            Created Spark + Airflow-based ETL pipelines for flight telemetry, with optimized PostgreSQL storage 
-            for faster retrieval and analytics.
-          </p>
-          <p className="mt-2 text-gray-400">
-            <strong>Impact:</strong> Reduced pipeline runtimes by 35% and increased operational reliability.
-          </p>
-        </div>
-
-        {/* AWS Projects */}
-        <div className="bg-gray-900 p-6 rounded-xl hover:scale-[1.02] transition duration-300">
-          <h3 className="text-2xl font-bold text-pink-500">Ad Insights GraphQL Migration</h3>
-          <p className="mt-3 text-gray-300">
-            Migrated legacy REST services to GraphQL APIs enabling faster, more efficient personalized ad reporting 
-            with reduced over-fetching.
-          </p>
-          <p className="mt-2 text-gray-400">
-            <strong>Impact:</strong> Improved query performance and accelerated ad analytics for global customers.
-          </p>
-        </div>
-
-        {/* Capgemini Projects */}
-        <div className="bg-gray-900 p-6 rounded-xl hover:scale-[1.02] transition duration-300">
-          <h3 className="text-2xl font-bold text-pink-500">High-Performance SaaS Platform</h3>
-          <p className="mt-3 text-gray-300">
-            Designed and implemented scalable SaaS modules using Spring Boot, React, and Redis caching.
-          </p>
-          <p className="mt-2 text-gray-400">
-            <strong>Impact:</strong> Improved API throughput by 30% and enhanced user experience.
-          </p>
-        </div>
-
+    <div className="h-full flex flex-col">
+      <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+        <Layers className="text-emerald-500" size={20} />
+        Key Projects
+      </h3>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 overflow-y-auto custom-scrollbar pr-2">
+        {projects.map((p, i) => (
+          <div key={i} className="group p-4 rounded-2xl bg-slate-50 border border-slate-100 hover:border-emerald-200 hover:bg-emerald-50 transition-all">
+            <div className="mb-3">{p.icon}</div>
+            <h4 className="text-sm font-bold text-slate-900 mb-1 group-hover:text-emerald-700 transition-colors">{p.title}</h4>
+            <p className="text-[11px] text-slate-500 mb-2 leading-relaxed">{p.desc}</p>
+            <div className="text-[10px] font-semibold text-emerald-600 bg-emerald-100/50 px-2 py-0.5 rounded-full w-fit">
+              {p.impact}
+            </div>
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 }

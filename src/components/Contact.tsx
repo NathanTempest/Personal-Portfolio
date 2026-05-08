@@ -1,32 +1,33 @@
-import React from "react";
+import { Mail, Linkedin, Send } from "lucide-react";
 
-const Contact: React.FC = () => {
+export default function Contact() {
   return (
-    <section id="contact" className="p-12 hover:scale-105 transition-transform duration-300">
-      <h2 className="text-4xl font-bold mb-8 text-pink-500">Contact</h2>
-      <ul className="text-gray-300 text-lg space-y-2">
-        <li>
-          Email:{" "}
-          <a href="mailto:nishanthjason@gmail.com" className="underline text-gold">
-            nishanthjason@gmail.com
-          </a>
-        </li>
-        <li>Phone: 716-463-9623</li>
-        <li>
-          LinkedIn:{" "}
-          <a href="https://linkedin.com/in/nishanthjason" className="underline text-gold">
-            linkedin.com/in/nathanjason
-          </a>
-        </li>
-        <li>
-          GitHub:{" "}
-          <a href="https://github.com/NathanTempest" className="underline text-gold">
-            github.com/NathanTempest
-          </a>
-        </li>
-      </ul>
-    </section>
+    <>
+      <div className="flex flex-col gap-2">
+        <h3 className="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <Send className="text-emerald-500" size={24} />
+          Let's Connect
+        </h3>
+        <p className="text-sm text-slate-500 max-w-md">
+          Open to collaborations on AI/ML projects, backend architecture, or interesting engineering challenges.
+        </p>
+      </div>
+      <div className="flex flex-wrap gap-4 mt-4 md:mt-0">
+        <a 
+          href="mailto:nathaniel@example.com" 
+          className="flex items-center gap-3 px-6 py-3 bg-white border border-slate-100 rounded-2xl text-slate-700 font-bold hover:border-emerald-200 hover:text-emerald-600 transition-all shadow-sm"
+        >
+          <Mail size={20} />
+          Email Me
+        </a>
+        <a 
+          href="#" 
+          className="flex items-center gap-3 px-6 py-3 bg-emerald-600 text-white rounded-2xl font-bold hover:bg-emerald-700 transition-all shadow-md shadow-emerald-100"
+        >
+          <Linkedin size={20} />
+          LinkedIn
+        </a>
+      </div>
+    </>
   );
-};
-
-export default Contact;
+}

@@ -1,42 +1,49 @@
-import React from "react";
+import { GraduationCap } from "lucide-react";
 
-const Education: React.FC = () => {
+export default function Education() {
   const education = [
     {
-      degree: "M.S. in Computer Science & AI (Ongoing)",
       school: "Indiana Wesleyan University",
-      dates: "Aug 2025 - Present",
+      degree: "M.S. in Computer Science / AI",
+      period: "2025 – Present",
+      focus: ["RL models", "Agentic development", "Rust Development"]
     },
     {
-      degree: "M.S. in Data Science & Machine Learning",
       school: "University at Buffalo",
-      dates: "Jul 2021 - Aug 2022",
-    },
-    {
-      degree: "B.S. in Computer Science",
-      school: "Sreenidhi University",
-      dates: "Jun 2016 - May 2020",
-    },
+      degree: "M.S. in Data Science",
+      period: "2022",
+      gpa: "3.8 / 4.0",
+      focus: ["Data Pipelines", "AI/ML models", "Python Development"]
+    }
   ];
 
   return (
-    <section id="education" className="p-12">
-      <h2 className="text-4xl font-bold text-pink-500 mb-8">Education</h2>
-      <div className="space-y-6">
-        {education.map((edu, index) => (
-          <div
-            key={index}
-            className="bg-gray-900 p-6 rounded-xl shadow-lg hover:scale-[1.02] transition-transform duration-300"
-          >
-            <h3 className="text-2xl font-bold text-pink-500">{edu.degree}</h3>
-            <p className="text-gray-400 mt-1">
-              {edu.school} | {edu.dates}
-            </p>
+    <div className="h-full flex flex-col justify-center">
+      <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+        <GraduationCap className="text-emerald-500" size={20} />
+        Education
+      </h3>
+      <div className="space-y-6 overflow-y-auto custom-scrollbar pr-2">
+        {education.map((edu, idx) => (
+          <div key={idx} className={idx !== 0 ? "pt-4 border-t border-slate-100" : ""}>
+            <div className="flex justify-between items-start mb-1">
+              <h4 className="text-sm font-bold text-slate-900">{edu.school}</h4>
+              <span className="text-[10px] font-medium text-slate-400">{edu.period}</span>
+            </div>
+            <p className="text-xs text-slate-500 mb-1">{edu.degree}</p>
+            {edu.gpa && (
+              <p className="text-[10px] font-semibold text-emerald-600 mb-2 uppercase tracking-wider">GPA: {edu.gpa}</p>
+            )}
+            <div className="flex flex-wrap gap-1">
+              {edu.focus.map(f => (
+                <span key={f} className="px-1.5 py-0.5 bg-slate-50 border border-slate-100 rounded text-[9px] text-slate-500">
+                  {f}
+                </span>
+              ))}
+            </div>
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
-};
-
-export default Education;
+}

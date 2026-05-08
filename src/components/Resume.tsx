@@ -1,16 +1,23 @@
-import React from "react";
+import { FileText, Download } from "lucide-react";
 
 export default function Resume() {
   return (
-    <section id="resume" className="p-12">
-      <h2 className="text-4xl font-bold text-pink-500 mb-6">Resume</h2>
-      <a
-        href="/Personal-Portfolio/NathanielJason_Resume.pdf"
-        download
-        className="bg-pink-500 hover:bg-pink-400 text-black px-6 py-3 rounded-xl transition"
-      >
-        Download Resume
-      </a>
-    </section>
+    <div className="flex flex-col items-center justify-center gap-4 py-4">
+      <div className="p-4 bg-emerald-50 text-emerald-600 rounded-full group-hover:scale-110 transition-transform">
+        <FileText size={32} />
+      </div>
+      <div>
+        <h3 className="text-lg font-bold text-slate-900 mb-1">Curriculum Vitae</h3>
+        <p className="text-xs text-slate-500 mb-4 px-4">Detailed overview of my professional journey and technical expertise.</p>
+        <a 
+          href="/path-to-resume.pdf" 
+          target="_blank" 
+          className="inline-flex items-center gap-2 px-6 py-2.5 bg-slate-900 text-white text-sm font-bold rounded-xl hover:bg-emerald-600 transition-colors shadow-lg shadow-slate-200"
+        >
+          <Download size={16} />
+          View Resume
+        </a>
+      </div>
+    </div>
   );
 }
