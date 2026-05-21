@@ -1,4 +1,4 @@
-import { Bot, LineChart, Plus, ArrowUpRight } from "lucide-react";
+import { Bot, Network, Plus, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const artifacts = [
@@ -11,12 +11,12 @@ const artifacts = [
     link: "https://github.com/NathanTempest/Soccer-Pundit-Chatbot"
   },
   {
-    title: "Personal Tracker Bot",
-    status: "Future Implementation",
-    desc: "Gamified productivity tracker for fitness, academic, and career goals.",
-    tech: ["React", "TypeScript", "Node.js", "Firebase"],
-    icon: <LineChart className="text-slate-400" size={24} />,
-    isPlaceholder: true
+    title: "Artifact 2: Neural Networks",
+    status: "Implemented",
+    desc: "An interactive visual breakdown of Neural Network architectures, covering core components from nodes to optimizers.",
+    tech: ["React", "Framer Motion", "SVG", "AI Theory"],
+    icon: <Network className="text-emerald-500" size={24} />,
+    internalLink: "/artifact/neural-networks"
   },
   {
     title: "Artifact 3: ML Framework",
