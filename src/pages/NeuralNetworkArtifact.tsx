@@ -48,6 +48,134 @@ const components = [
   }
 ];
 
+const NeuralNetworkGraph = () => {
+  const inputNodes = [100, 200, 300];
+  const hiddenNodes = [60, 130, 200, 270, 340];
+  const outputNodes = [150, 250];
+
+  const xInput = 100;
+  const xHidden = 400;
+  const xOutput = 700;
+
+  return (
+    <div className="w-full overflow-x-auto py-8">
+      <svg viewBox="0 0 800 400" className="w-full min-w-[600px] h-auto">
+        {/* Connection Lines: Input to Hidden */}
+        {inputNodes.map((iy) =>
+          hiddenNodes.map((hy, idx) => (
+            <motion.line
+              key={`ih-${iy}-${hy}`}
+              x1={xInput}
+              y1={iy}
+              x2={xHidden}
+              y2={hy}
+              stroke="rgba(52, 211, 153, 0.2)"
+              strokeWidth="1"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 1 }}
+              transition={{ duration: 1, delay: idx * 0.05 }}
+            />
+          ))
+        )}
+
+        {/* Connection Lines: Hidden to Output */}
+        {hiddenNodes.map((hy) =>
+          outputNodes.map((oy, idx) => (
+            <motion.line
+              key={`ho-${hy}-${oy}`}
+              x1={xHidden}
+              y1={hy}
+              x2={xOutput}
+              y2={oy}
+              stroke="rgba(52, 211, 153, 0.2)"
+              strokeWidth="1"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 1 }}
+              transition={{ duration: 1, delay: 0.5 + idx * 0.05 }}
+            />
+          ))
+        )}
+
+        {/* Animated Pulses */}
+        {[...Array(12)].map((_, i) => {
+          const startNode = inputNodes[i % inputNodes.length];
+          const midNode = hiddenNodes[Math.floor(Math.random() * hiddenNodes.length)];
+          const endNode = outputNodes[Math.floor(Math.random() * outputNodes.length)];
+          
+          return (
+            <g key={`pulse-${i}`}>
+              <motion.circle
+                r="3"
+                fill="#10b981"
+                initial={{ cx: xInput, cy: startNode, opacity: 0 }}
+                animate={{ 
+                  cx: [xInput, xHidden, xOutput], 
+                  cy: [startNode, midNode, endNode],
+                  opacity: [0, 1, 0] 
+                }}
+                transition={{ 
+                  duration: 3, 
+                  repeat: Infinity, 
+                  delay: i * 0.8,
+                  ease: "easeInOut"
+                }}
+              />
+            </g>
+          );
+        })}
+
+        {/* Input Nodes */}
+        {inputNodes.map((y, i) => (
+          <g key={`in-${i}`}>
+            <motion.circle
+              cx={xInput}
+              cy={y}
+              r="12"
+              fill="#3b82f6"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              className="shadow-lg"
+            />
+            {i === 0 && <text x={xInput} y={y - 25} textAnchor="middle" fill="#94a3b8" fontSize="12" fontWeight="bold">Input Layer</text>}
+          </g>
+        ))}
+
+        {/* Hidden Nodes */}
+        {hiddenNodes.map((y, i) => (
+          <g key={`hid-${i}`}>
+            <motion.circle
+              cx={xHidden}
+              cy={y}
+              r="12"
+              fill="#10b981"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.2 }}
+            />
+            {i === 0 && <text x={xHidden} y={y - 25} textAnchor="middle" fill="#94a3b8" fontSize="12" fontWeight="bold">Hidden Layers</text>}
+          </g>
+        ))}
+
+        {/* Output Nodes */}
+        {outputNodes.map((y, i) => (
+          <g key={`out-${i}`}>
+            <motion.circle
+              cx={xOutput}
+              cy={y}
+              r="12"
+              fill="#f43f5e"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.4 }}
+            />
+            {i === 0 && <text x={xOutput} y={y - 25} textAnchor="middle" fill="#94a3b8" fontSize="12" fontWeight="bold">Output Layer</text>}
+          </g>
+        ))}
+      </svg>
+    </div>
+  );
+};
+
 const NeuralNetworkArtifact: React.FC = () => {
   const container = {
     hidden: { opacity: 0 },
@@ -104,56 +232,33 @@ const NeuralNetworkArtifact: React.FC = () => {
 
           {/* Visual Diagram Section */}
           <motion.div variants={item} className="bento-card lg:col-span-4 bg-slate-900 text-white overflow-hidden relative">
-            <div className="absolute top-0 right-0 p-8 opacity-10">
+            <div className="absolute top-0 right-0 p-8 opacity-5">
               <Sparkles size={200} />
             </div>
-            <h2 className="text-2xl font-bold mb-8 flex items-center gap-3">
+            <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
               <Sparkles className="text-emerald-400" />
-              Visualizing Information Flow
+              Information Flow & Architecture
             </h2>
+            <p className="text-slate-400 text-sm mb-8 max-w-2xl">
+              This diagram illustrates a Multilayer Perceptron (MLP) structure. Data flows from left to right during inference, with each connection representing a weight that transforms the signal.
+            </p>
             
-            <div className="flex flex-col md:flex-row justify-around items-center gap-12 py-12 relative">
-              {/* Connection Lines (Conceptual) */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-20 hidden md:flex">
-                <div className="w-2/3 h-px bg-gradient-to-r from-blue-400 via-emerald-400 to-rose-400"></div>
+            <NeuralNetworkGraph />
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 pt-8 border-t border-slate-800">
+              <div className="flex items-center gap-3">
+                <div className="w-3 h-3 rounded-full bg-blue-500"></div>
+                <span className="text-xs font-medium text-slate-300">Input: Features / Data</span>
               </div>
-
-              {/* Input Layer */}
-              <div className="z-10 text-center group">
-                <div className="w-24 h-24 rounded-2xl bg-blue-500/20 border-2 border-blue-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg shadow-blue-500/20">
-                  <div className="flex flex-col gap-2">
-                    <div className="w-8 h-2 bg-blue-400 rounded-full"></div>
-                    <div className="w-8 h-2 bg-blue-400 rounded-full"></div>
-                  </div>
-                </div>
-                <p className="font-bold">Input Layer</p>
-                <p className="text-xs text-slate-400">Raw Data</p>
+              <div className="flex items-center gap-3">
+                <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+                <span className="text-xs font-medium text-slate-300">Hidden: Computation & Nonlinearity</span>
               </div>
-
-              {/* Hidden Layer 1 */}
-              <div className="z-10 text-center group">
-                <div className="w-32 h-40 rounded-3xl bg-emerald-500/20 border-2 border-emerald-400 flex flex-wrap gap-2 p-4 items-center justify-center mb-4 group-hover:scale-105 transition-transform">
-                  {[...Array(6)].map((_, i) => (
-                    <div key={i} className="w-4 h-4 rounded-full bg-emerald-400 shadow-sm animate-pulse" style={{ animationDelay: `${i * 0.2}s` }}></div>
-                  ))}
-                </div>
-                <p className="font-bold">Hidden Layers</p>
-                <p className="text-xs text-slate-400">Feature Extraction</p>
-              </div>
-
-              {/* Output Layer */}
-              <div className="z-10 text-center group">
-                <div className="w-24 h-24 rounded-2xl bg-rose-500/20 border-2 border-rose-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg shadow-rose-500/20">
-                  <Target size={32} className="text-rose-400" />
-                </div>
-                <p className="font-bold">Output Layer</p>
-                <p className="text-xs text-slate-400">Prediction</p>
+              <div className="flex items-center gap-3">
+                <div className="w-3 h-3 rounded-full bg-rose-500"></div>
+                <span className="text-xs font-medium text-slate-300">Output: Predictions / Classifications</span>
               </div>
             </div>
-            
-            <p className="text-center text-sm text-slate-400 mt-8">
-              Data flows forward (Inference) and errors flow backward (Backpropagation) to refine the parameters.
-            </p>
           </motion.div>
 
           {/* Component Breakdown Grid */}
