@@ -25,6 +25,14 @@ const artifacts = [
     tech: ["React", "Tailwind", "ML Theory"],
     icon: <Plus className="text-emerald-500" size={24} />,
     internalLink: "/artifact/ml-framework"
+  },
+  {
+    title: "Artifact 4: GenAI Training",
+    status: "Implemented",
+    desc: "A visual exploration of the infrastructure, processes, and costs required to train large language models.",
+    tech: ["React", "Tailwind", "GenAI Infrastructure"],
+    icon: <Zap className="text-emerald-500" size={24} />,
+    internalLink: "/artifact/genai-training"
   }
 ];
 
@@ -39,7 +47,7 @@ export default function ArtifactsCard() {
         <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Selected Works</span>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 flex-grow">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 flex-grow">
         {artifacts.map((a, i) => {
           const Content = (
             <div 
