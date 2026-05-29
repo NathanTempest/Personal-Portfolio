@@ -36,6 +36,57 @@ const trainingSteps = [
   }
 ];
 
+const resourceCosts = [
+  {
+    title: "Data Resources",
+    desc: "Trillions of tokens, petabytes of storage, and extensive human-in-the-loop cleaning.",
+    icon: <Database className="text-blue-500" size={20} />,
+    impact: "Data Quality"
+  },
+  {
+    title: "Compute Power",
+    desc: "NVIDIA H100/A100 clusters requiring massive capital expenditure and low-latency networking.",
+    icon: <Cpu className="text-purple-500" size={20} />,
+    impact: "Model Scale"
+  },
+  {
+    title: "Energy & Cooling",
+    desc: "Megawatts of power consumption requiring sustainable energy solutions and massive cooling.",
+    icon: <Zap className="text-yellow-500" size={20} />,
+    impact: "Sustainability"
+  },
+  {
+    title: "Time & Expertise",
+    desc: "Months of wall-clock time and thousands of hours of expert engineering and human alignment.",
+    icon: <Clock className="text-rose-500" size={20} />,
+    impact: "Model Safety"
+  }
+];
+
+const modelExamples = [
+  {
+    name: "GPT-4 (OpenAI)",
+    cost: "$100M+ Est.",
+    compute: "Thousands of A100s",
+    data: "Trillions of tokens",
+    context: "Leading proprietary model."
+  },
+  {
+    name: "LLaMA 3 (Meta)",
+    cost: "Massive R&D",
+    compute: "24k+ H100 GPUs",
+    data: "15 Trillion tokens",
+    context: "State-of-the-art Open Weights."
+  },
+  {
+    name: "Gemini 1.5 (Google)",
+    cost: "Proprietary",
+    compute: "TPU v4/v5 Clusters",
+    data: "Multimodal Native",
+    context: "Extreme Context Window."
+  }
+];
+
 const GenAITrainingArtifact: React.FC = () => {
   const container = {
     hidden: { opacity: 0 },
@@ -121,6 +172,50 @@ const GenAITrainingArtifact: React.FC = () => {
                   </div>
                 </div>
               ))}
+            </div>
+          </motion.div>
+
+          {/* Resource Costs Card */}
+          <motion.div variants={item} className="lg:col-span-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {resourceCosts.map((cost, i) => (
+              <div key={i} className="bento-card flex flex-col">
+                <div className="mb-4 p-3 rounded-xl bg-slate-50 w-fit">{cost.icon}</div>
+                <h3 className="font-bold text-slate-900 mb-1">{cost.title}</h3>
+                <p className="text-[11px] text-slate-500 leading-relaxed mb-4 flex-grow">{cost.desc}</p>
+                <div className="pt-3 border-t border-slate-50">
+                  <p className="text-[10px] font-bold text-slate-400 uppercase mb-1">Key Impact</p>
+                  <p className="text-[10px] font-medium text-emerald-600">{cost.impact}</p>
+                </div>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Model Examples Table/Grid */}
+          <motion.div variants={item} className="bento-card lg:col-span-4 overflow-hidden">
+            <h2 className="text-xl font-bold text-slate-900 mb-6">Prominent Generative AI Models</h2>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left">
+                <thead>
+                  <tr className="border-b border-slate-100">
+                    <th className="pb-4 text-xs font-bold text-slate-400 uppercase tracking-wider">Model Name</th>
+                    <th className="pb-4 text-xs font-bold text-slate-400 uppercase tracking-wider">Estimated Cost</th>
+                    <th className="pb-4 text-xs font-bold text-slate-400 uppercase tracking-wider">Compute Scale</th>
+                    <th className="pb-4 text-xs font-bold text-slate-400 uppercase tracking-wider">Data Volume</th>
+                    <th className="pb-4 text-xs font-bold text-slate-400 uppercase tracking-wider">Market Context</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-50">
+                  {modelExamples.map((model, i) => (
+                    <tr key={i} className="group hover:bg-slate-50/50 transition-colors">
+                      <td className="py-4 text-sm font-bold text-slate-900">{model.name}</td>
+                      <td className="py-4 text-sm text-slate-600 font-medium">{model.cost}</td>
+                      <td className="py-4 text-sm text-slate-600">{model.compute}</td>
+                      <td className="py-4 text-sm text-slate-600">{model.data}</td>
+                      <td className="py-4 text-xs text-slate-400 italic">{model.context}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </motion.div>
         </motion.div>
