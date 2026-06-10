@@ -1,3 +1,4 @@
+import React from "react";
 import { motion } from "framer-motion";
 import Experience from "../components/Experience";
 import Projects from "../components/Projects";

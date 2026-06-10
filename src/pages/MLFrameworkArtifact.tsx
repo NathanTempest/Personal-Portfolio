@@ -1,3 +1,4 @@
+import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowLeft, BookOpen, Brain, Database, Cpu, MessageSquare, Image, Sparkles } from "lucide-react";

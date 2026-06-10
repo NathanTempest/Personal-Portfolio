@@ -1,4 +1,4 @@
-import { Bot, Network, Plus, ArrowUpRight } from "lucide-react";
+import { Bot, Network, Plus, ArrowUpRight, Zap, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const artifacts = [
@@ -8,7 +8,8 @@ const artifacts = [
     desc: "AI-driven chatbot for soccer predictions and player stats using LangChain and OpenAI.",
     tech: ["Python", "OpenAI", "LangChain", "Flask"],
     icon: <Bot className="text-emerald-500" size={24} />,
-    link: "https://github.com/NathanTempest/Soccer-Pundit-Chatbot"
+    link: "https://github.com/NathanTempest/Soccer-Pundit-Chatbot",
+    isPlaceholder: false
   },
   {
     title: "Artifact 2: Neural Networks",
@@ -16,7 +17,8 @@ const artifacts = [
     desc: "An interactive visual breakdown of Neural Network architectures, covering core components from nodes to optimizers.",
     tech: ["React", "Framer Motion", "SVG", "AI Theory"],
     icon: <Network className="text-emerald-500" size={24} />,
-    internalLink: "/artifact/neural-networks"
+    internalLink: "/artifact/neural-networks",
+    isPlaceholder: false
   },
   {
     title: "Artifact 3: ML Framework",
@@ -24,7 +26,8 @@ const artifacts = [
     desc: "Comprehensive visual framework outlining 10+ algorithms across Tabular, Vision, NLP, and GenAI.",
     tech: ["React", "Tailwind", "ML Theory"],
     icon: <Plus className="text-emerald-500" size={24} />,
-    internalLink: "/artifact/ml-framework"
+    internalLink: "/artifact/ml-framework",
+    isPlaceholder: false
   },
   {
     title: "Artifact 4: GenAI Training",
@@ -32,7 +35,17 @@ const artifacts = [
     desc: "A visual exploration of the infrastructure, processes, and costs required to train large language models.",
     tech: ["React", "Tailwind", "GenAI Infrastructure"],
     icon: <Zap className="text-emerald-500" size={24} />,
-    internalLink: "/artifact/genai-training"
+    internalLink: "/artifact/genai-training",
+    isPlaceholder: false
+  },
+  {
+    title: "Artifact 5: Explainable AI",
+    status: "Implemented",
+    desc: "Visualizing the challenges and solutions for making LLM decision-making processes transparent and trustworthy.",
+    tech: ["React", "XAI Theory", "Framer Motion"],
+    icon: <Eye className="text-emerald-500" size={24} />,
+    internalLink: "/artifact/explainable-ai",
+    isPlaceholder: false
   }
 ];
 
