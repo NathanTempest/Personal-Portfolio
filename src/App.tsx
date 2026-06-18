@@ -5,6 +5,7 @@ import MLFrameworkArtifact from "./pages/MLFrameworkArtifact";
 import NeuralNetworkArtifact from "./pages/NeuralNetworkArtifact";
 import GenAITrainingArtifact from "./pages/GenAITrainingArtifact";
 import ExplainableAIArtifact from "./pages/ExplainableAIArtifact";
+import ModelSelectionArtifact from "./pages/ModelSelectionArtifact";
 
 const App: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const App: React.FC = () => {
         <Route path="/artifact/neural-networks" element={<NeuralNetworkArtifact />} />
         <Route path="/artifact/genai-training" element={<GenAITrainingArtifact />} />
         <Route path="/artifact/explainable-ai" element={<ExplainableAIArtifact />} />
+        <Route path="/artifact/model-selection" element={<ModelSelectionArtifact />} />
         {/* Catch-all to redirect back home */}
         <Route path="*" element={<Home />} />
       </Routes>

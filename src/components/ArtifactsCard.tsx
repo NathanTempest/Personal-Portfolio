@@ -1,4 +1,4 @@
-import { Bot, Network, Plus, ArrowUpRight, Zap, Eye } from "lucide-react";
+import { Bot, Network, Plus, ArrowUpRight, Zap, Eye, BarChart3 } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const artifacts = [
@@ -45,6 +45,15 @@ const artifacts = [
     tech: ["React", "XAI Theory", "Framer Motion"],
     icon: <Eye className="text-emerald-500" size={24} />,
     internalLink: "/artifact/explainable-ai",
+    isPlaceholder: false
+  },
+  {
+    title: "Artifact 6: Model Selection",
+    status: "Implemented",
+    desc: "A Decision Matrix comparing trade-offs in Size, Accuracy, and Speed across NLP, Vision, and Tabular models.",
+    tech: ["React", "Model Theory", "UI Design"],
+    icon: <BarChart3 className="text-emerald-500" size={24} />,
+    internalLink: "/artifact/model-selection",
     isPlaceholder: false
   }
 ];
